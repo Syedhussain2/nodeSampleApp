@@ -2,7 +2,7 @@ required_plugins = %w( vagrant-hostsupdater )
 required_plugins.each do |plugin|
     exec "vagrant plugin install #{plugin};vagrant #{ARGV.join(" ")}" unless Vagrant.has_plugin? plugin || ARGV[0] == 'plugin'
 end
-# HI
+# HI my name is
 Vagrant.configure("2") do |config|
 
   config.vm.define "app" do |app|
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
     db.hostsupdater.aliases = ["database.local"]
 
     # provision with chef
-    db.vm.provision "chef_solo" do |chef|
+    db.vm.provision "hef_solo" do |chef|
         chef.add_recipe "mongo-server::default"
     end
   end
